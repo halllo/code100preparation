@@ -14,6 +14,11 @@ builder.Services.AddAuthorization(options =>
         policy.RequireAuthenticatedUser();
         policy.RequireAssertion(context => context.User.HasClaim(c => c.Type == "apikey" && c.Value == "myak1"));
     });
+    options.AddPolicy("road", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireAssertion(context => context.User.HasClaim(c => c.Type == "apikey" && c.Value == "myak1"));
+    });
 });
 
 
