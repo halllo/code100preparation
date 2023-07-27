@@ -31,6 +31,12 @@ namespace Service
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public IEnumerable<WeatherForecast> Post([FromBody]IEnumerable<WeatherForecast> dto) 
+        {
+            return dto;
+        }
     }
 
     public class WeatherForecast
